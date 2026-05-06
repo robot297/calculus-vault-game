@@ -1,0 +1,103 @@
+/**
+ * All puzzle data for The Calculus Vault.
+ * To add or edit puzzles, modify this file only.
+ */
+export const PUZZLES = [
+  {
+    id: 1,
+    screen:    'puzzle-1',
+    number:    '1',
+    title:     'THE POWER LOCK',
+    concept:   'Power Rule',
+    question:  'Find the derivative of:',
+    expression:'f(x) = 4x³ − 7x² + 2x − 9',
+    hint:      null,
+    answers: [
+      { label: 'A', text: '12x² − 14x + 2',   correct: true  },
+      { label: 'B', text: '12x² − 14x − 9',   correct: false },
+      { label: 'C', text: '4x² − 7x + 2',     correct: false },
+      { label: 'D', text: '12x³ − 14x² + 2',  correct: false },
+    ],
+    correctScreen:  'correct-1',
+    wrongScreen:    'try-1',
+    digit:          '6',
+    digitLabel:     'FIRST DIGIT',
+    digitHint:      'The exponent of the leading term after differentiation.',
+    tryAgainHint:   "Check your power rule: multiply by the exponent, then reduce it by 1. Constants disappear!",
+    nextScreen:     'puzzle-2',
+  },
+  {
+    id: 2,
+    screen:    'puzzle-2',
+    number:    '2',
+    title:     'THE CHAIN REACTION',
+    concept:   'Chain Rule',
+    question:  'Find the derivative of:',
+    expression:'g(x) = (3x² + 1)⁴',
+    hint:      null,
+    answers: [
+      { label: 'A', text: '4(3x² + 1)³',      correct: false },
+      { label: 'B', text: '24x(3x² + 1)³',    correct: true  },
+      { label: 'C', text: '4(6x)³',            correct: false },
+      { label: 'D', text: '12x(3x² + 1)⁴',    correct: false },
+    ],
+    correctScreen:  'correct-2',
+    wrongScreen:    'try-2',
+    digit:          '2',
+    digitLabel:     'SECOND DIGIT',
+    digitHint:      'Multiply the outer and inner derivatives together.',
+    tryAgainHint:   'Differentiate the outside first (keep the inside), then multiply by the derivative of the inside.',
+    nextScreen:     'puzzle-3',
+  },
+  {
+    id: 3,
+    screen:    'puzzle-3',
+    number:    '3',
+    title:     'THE PRODUCT TRAP',
+    concept:   'Product Rule',
+    question:  'Find the derivative of:',
+    expression:'h(x) = x² · sin(x)',
+    hint:      null,
+    answers: [
+      { label: 'A', text: '2x · cos(x)',                     correct: false },
+      { label: 'B', text: 'x² · cos(x) + 2x · sin(x)',      correct: true  },
+      { label: 'C', text: '2x · sin(x) + x² · cos(x)',      correct: true  },
+      { label: 'D', text: 'x² · cos(x)',                     correct: false },
+    ],
+    correctScreen:  'correct-3',
+    wrongScreen:    'try-3',
+    digit:          '9',
+    digitLabel:     'THIRD DIGIT',
+    digitHint:      'Did you spot the two equivalent correct answers? That was intentional.',
+    tryAgainHint:   "(uv)' = u'v + uv'  — you need BOTH terms.",
+    nextScreen:     'puzzle-4',
+  },
+  {
+    id: 4,
+    screen:    'puzzle-4',
+    number:    '4',
+    title:     'THE SLOPE CIPHER',
+    concept:   'Derivative as Slope / Tangent Lines',
+    question:  'The function p(x) = x³ − 3x has a horizontal tangent line when x = ?',
+    expression: null,
+    hint:      "Hint: a horizontal tangent means slope = 0.\nFind p'(x), then set it equal to zero.",
+    answers: [
+      { label: 'A', text: 'x = 0 only',         correct: false },
+      { label: 'B', text: 'x = 1 and x = −1',   correct: true  },
+      { label: 'C', text: 'x = 3',              correct: false },
+      { label: 'D', text: 'x = −3 and x = 3',  correct: false },
+    ],
+    correctScreen:  'correct-4',
+    wrongScreen:    'try-4',
+    digit:          '4',
+    digitLabel:     'FOURTH DIGIT',
+    digitHint:      "p'(x) = 3x² − 3 = 0  →  x² = 1  →  x = ±1",
+    tryAgainHint:   "Find p'(x) first, set it to 0, then factor the quadratic carefully.",
+    nextScreen:     'victory',
+  },
+]
+
+/** Map screen ID → puzzle object */
+export const PUZZLE_MAP = Object.fromEntries(PUZZLES.map(p => [p.screen, p]))
+export const CORRECT_MAP = Object.fromEntries(PUZZLES.map(p => [p.correctScreen, p]))
+export const TRY_MAP     = Object.fromEntries(PUZZLES.map(p => [p.wrongScreen,   p]))

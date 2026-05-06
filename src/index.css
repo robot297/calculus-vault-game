@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0D1B2A;
+  color: #ffffff;
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  overflow: hidden;
+}
+
+/* ── Scanline overlay ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Gold text glow ── */
+.text-glow-gold {
+  text-shadow:
+    0 0 8px rgba(255, 215, 0, 0.8),
+    0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* ── Red text glow ── */
+.text-glow-red {
+  text-shadow:
+    0 0 8px rgba(255, 68, 68, 0.9),
+    0 0 20px rgba(255, 68, 68, 0.4);
+}
+
+/* ── Panel border glow ── */
+.border-glow-gold {
+  box-shadow:
+    0 0 0 1px #FFD700,
+    0 0 12px rgba(255, 215, 0, 0.35),
+    inset 0 0 12px rgba(255, 215, 0, 0.05);
+}
+
+.border-glow-red {
+  box-shadow:
+    0 0 0 1px #FF4444,
+    0 0 12px rgba(255, 68, 68, 0.35),
+    inset 0 0 12px rgba(255, 68, 68, 0.05);
+}
+
+/* ── Grid background dots ── */
+.bg-grid {
+  background-image: radial-gradient(rgba(30, 58, 95, 0.6) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Scrollable overflow for content ── */
+.screen-scroll {
+  overflow-y: auto;
+  max-height: 100vh;
+}
