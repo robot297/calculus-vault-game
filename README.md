@@ -79,7 +79,3 @@ Feel free to open issues or PRs. Add a `LICENSE` file to clarify terms before ac
 ## License
 
 This project is licensed under the MIT License — see the `LICENSE` file for details.
-
----
-
-If you want, I can: run the app, add a sample LICENSE, or expand this README with developer commands.
